@@ -52,7 +52,7 @@ public class Fetch_icourse163 {
 	
 	private static List<String> getAllCourseList() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
-		String path = "file:///Users/xianlu/Documents/crawl/gongchengjishu.html";
+		String path = "file:///Users/xianlu/Documents/crawl/zhexue.html";
 		HtmlPage page = webClient.getPage(path);
 		List<String> list = new ArrayList<String>();
 		DomNodeList<DomElement> elementsByTagName = page.getElementsByTagName("div");

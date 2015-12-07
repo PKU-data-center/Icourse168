@@ -19,9 +19,9 @@ public class Icourse163_DB {
 
 	public Connection getConnection() {
 		// 连接MySql数据库，用户名和密码都是root
-		String url = "jdbc:mysql://health.wenwanyuan.cn:3306/mooc?useUnicode=true&characterEncoding=utf8";
-		String username = "";
-		String password = "";
+		String url = "jdbc:mysql://101.200.236.220:3306/mooc?useUnicode=true&characterEncoding=utf8";
+		String username = "root";
+		String password = "mysql";
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
