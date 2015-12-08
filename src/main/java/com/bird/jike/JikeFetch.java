@@ -52,16 +52,19 @@ public class JikeFetch {
 			if (ele.getAttribute("class").equals("lesson-box")) {
 				lessonSection = ele.getTextContent().trim();
 				String[] args = lessonSection.split("\n");
-				System.out.println(args.length);
-				for (String t : args) {
-					if (!t.trim().equals("")) {
-						System.out.println(t);
-					}
+				StringBuffer sb = new StringBuffer();
+				for (int i = 0; i < args.length - 1; i++) {
+					sb.append(args[i]);
 				}
+				if (!lessonSection.equals("")) {
+					break;
+				}
+				lessonSection = sb.toString().replaceAll(" ", "").replaceAll("只有成为VIP会员才能提问&回复，快登录吧！如果你还没有账号你可以注册一个账号。", "")
+						.replaceAll("\n", "").replaceAll("\r", "");
 			}
 		}
-		
-		//insertDB(title, shortDesc, detailInfo, lessonSection, url);
+		//System.out.println(lessonSection);
+		insertDB(title, shortDesc, detailInfo, lessonSection, url);
 	}
 	
 	
@@ -81,7 +84,7 @@ public class JikeFetch {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		for (int i = 1; i < 10; i++) {
+		for (int i = 80; i < 90; i++) {
 			System.out.println("第" + i +"页");
 			JikeFetch.fetchPage(i);
 		}
